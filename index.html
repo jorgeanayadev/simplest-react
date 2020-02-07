@@ -1,56 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>React JS Search Results</title>
-    <!-- Add React and Babel References -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-  </head>
-  <body>
-    <section>
-      <!-- Every React app must have what’s known as an entry point.
-           The entry point is an HTML element where we insert our React application into the page. -->
-      <div id="root">
 
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>React JS Search Results</title>
+  <!-- Add React and Babel References -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <section>
+    <!-- Every React app must have what’s known as an entry point.
+           The entry point is an HTML element where we insert our React application into the page. -->
+    <div id="root">
+
+    </div>
 
     <!-- Our Script must have type="text/babel" for Babel to work-->
     <script type="text/babel">
       //React code will go here
-      ReactDOM.render(    
-      <section>
-      <div>
-        <a href="https://reactjs.org">React - A JavaScript Library for Building User Interfaces</a>
-        <div>
-          <h3>reactjs.org</h3>
-        </div>
-        <div>
-          React makes it painless to create interactive UIs.
-        </div>
-      </div>
-      <div>
-        <a href="https://en.wikipedia.org/wiki/React_(web_framework)">React (web framework) - Wikipedia</a>
-        <div>
-          <h3>https://en.wikipedia.org › wiki › React_(web_framework)</h3>
-        </div>
-        <div>
-          React is a JavaScript library for building user interfaces.
-        </div>
-      </div>
-      <div>
-        <a href="https://twitter.com/reactjs?lang=en">React (@reactjs) | Twitter</a>
-        <div>
-          <h3>https://twitter.com › reactjs</h3>
-        </div>
-        <div>
-          The latest Tweets from React (@reactjs).
-        </div>
-      </div>
-    </section>, document.getElementById('root'))
-  </script>
-  </body>
+
+      // Babel converts this code that looks like HTML into valid JavaScript (JSX: JavaScript XML)
+      // The functions in react must be Capitalize to differentiate from normal javascript functions
+      // React Functions became Components
+      // The Component must return JSX code between parenthesis function ComponentName() { return ( ...JSX Code ... ) }
+      // Every React Component must return either JSX elements or other React components. 
+      function Link() {
+        return (
+          <div>
+            <a href="https://reactjs.org">React - A JavaScript Library for Building User Interfaces</a>
+            <div>
+              <h3>reactjs.org</h3>
+            </div>
+            <div>
+              React makes it painless to create interactive UIs.
+            </div>
+          </div>
+        )
+      }
+
+      ReactDOM.render(
+        <section>
+          <Link />
+          <Link />
+          <Link />
+        </section>, document.getElementById('root'))
+    </script>
+</body>
+
 </html>
