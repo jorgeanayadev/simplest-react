@@ -29,15 +29,25 @@
       // React Functions became Components
       // The Component must return JSX code between parenthesis function ComponentName() { return ( ...JSX Code ... ) }
       // Every React Component must return either JSX elements or other React components. 
-      function Link() {
+
+      /* PROPS (Passing data to the components)
+        We can pass data to the function components using attributes and it is passed to the Link function as and argument
+        <Link attributeName="value" /> 
+       
+        React collects and organizes the data passed to a given component as a single object.
+        The name for data passed to a component, such as title, is props.
+        All prop values exist within the function component itself on a props object.
+      */
+
+      function Link(props) {
+        // We use {} curly braces to insert or interpolate dynamic values wherever we need.
         return (
           <div>
-            <a href="https://reactjs.org">React - A JavaScript Library for Building User Interfaces</a>
+            <a href="{props.url}">{props.title}</a>
             <div>
-              <h3>reactjs.org</h3>
+              <h3>{props.shortUrl}</h3>
             </div>
-            <div>
-              React makes it painless to create interactive UIs.
+            <div> {props.excerpt}
             </div>
           </div>
         )
@@ -47,9 +57,19 @@
       function App() {
         return (
           <section>
-            <Link />
-            <Link />
-            <Link />
+            <Link title="React - A JavaScript Library for Building User Interfaces"
+              url="https://reactjs.org"
+              shortUrl="reactjs.org"
+              excerpt="React makes it painless to create interactive UIs." />
+            <Link title="Jorge Anaya's Blog"
+              url="https://www.jorgeanaya.dev"
+              shortUrl="jorgeanaya.dev"
+              excerpt="Personal insights about coding and life" />
+            <Link title="Google"
+              url="https://www.google.com"
+              shortUrl="google.com"
+              excerpt="We everything fails there it is my friend GoogleIt!"
+            />
           </section>
         )
       }
