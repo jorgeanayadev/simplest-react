@@ -15,7 +15,7 @@
 <body>
   <section>
     <!-- Every React app must have what’s known as an entry point.
-           The entry point is an HTML element where we insert our React application into the page. -->
+         The entry point is an HTML element where we insert our React application into the page. -->
     <div id="root">
 
     </div>
@@ -39,6 +39,33 @@
         All prop values exist within the function component itself on a props object.
       */
 
+      /* SEPARATE DATA FROM UI
+          Make and array of objects and pass down the link components through props. 
+          Since this is a common pattern in React, it has its own method .map() that works with JSX 
+          (don't confuse with JS array.map() it's similar but Reacts works only for JXS)
+      */
+
+      const linkData = [
+        {
+          title: "React - A JavaScript Library for Building User Interfaces",
+          url: "https://reactjs.org",
+          shortUrl: "reactjs.org",
+          excerpt: "React makes it painless to create interactive UIs."
+        },
+        {
+          title: "Jorge Anaya's Blog",
+          url: "https://www.jorgeanaya.dev",
+          shortUrl: "jorgeanaya.dev",
+          excerpt: "Personal insights about coding and life"
+        },
+        {
+          title: "Google",
+          url: "https://www.google.com",
+          shortUrl: "google.com",
+          excerpt: "When everything fails then Google is your friend, GoogleIt!"
+        }
+      ]
+
       function Link(props) {
         // We use {} curly braces to insert or interpolate dynamic values wherever we need.
         return (
@@ -54,22 +81,23 @@
       }
 
       // Since React components can return other React components, we can make an App Component
+      // The entire JSX expression is surrounded by curly braces
+      // JSX allows us to insert any valid JavaScript expression between curly braces.
       function App() {
         return (
           <section>
-            <Link title="React - A JavaScript Library for Building User Interfaces"
-              url="https://reactjs.org"
-              shortUrl="reactjs.org"
-              excerpt="React makes it painless to create interactive UIs." />
-            <Link title="Jorge Anaya's Blog"
-              url="https://www.jorgeanaya.dev"
-              shortUrl="jorgeanaya.dev"
-              excerpt="Personal insights about coding and life" />
-            <Link title="Google"
-              url="https://www.google.com"
-              shortUrl="google.com"
-              excerpt="We everything fails there it is my friend GoogleIt!"
-            />
+            {linkData.map(function (link) {
+              return (
+                <Link
+                  key={link.url} // Each child in a list should have a unique "key" prop
+                  title={link.title}
+                  url={link.url}
+                  shortUrl={link.shortUrl}
+                  excerpt={link.excerpt} />
+              ); // return end
+            } // function end            
+            ) /* map() & expression end */
+            }
           </section>
         )
       }
