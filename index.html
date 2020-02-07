@@ -43,12 +43,18 @@
         )
       }
 
-      ReactDOM.render(
-        <section>
-          <Link />
-          <Link />
-          <Link />
-        </section>, document.getElementById('root'))
+      // Since React components can return other React components, we can make an App Component
+      function App() {
+        return (
+          <section>
+            <Link />
+            <Link />
+            <Link />
+          </section>
+        )
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'))
     </script>
 </body>
 
